@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Polupalli Surya Narayana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #ffffff;
+      --radius: 12px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: white;
+      background: linear-gradient(135deg, rgba(50, 50, 60, 0.85), rgba(100, 100, 150, 0.7)),
+                  url("images/projectsback.jpg") center/cover no-repeat fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    section {
+      padding: 100px 10%;
+      text-align: center;
+      backdrop-filter: blur(3px);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #fff, #c4c4ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideDown 1s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    p.intro {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      opacity: 0.9;
+    }
+
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      padding: 25px;
+      text-align: left;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeUp 1.2s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.15);
+      transition: 0.5s;
+    }
+
+    .project-card:hover::before {
+      left: 0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      color: #e0e0e0;
+      margin-bottom: 15px;
+    }
+
+    .project-card a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius);
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-card a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 50px;
+      padding: 10px 20px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <section id="projects">
+    <h1>My Projects</h1>
+    <p class="intro">A collection of my favorite projects that showcase my skills in web development, AI, and machine learning.</p>
+
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>Surya Airlines</h3>
+        <p>A full-stack airline booking website with user authentication, flight listings, and booking management.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Student Activity Portal</h3>
+        <p>Developed a portal for managing student activities with an admin dashboard and secure backend integration.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>AI-Based Chatbot</h3>
+        <p>Created a conversational chatbot using Python and NLP to answer college-related queries intelligently.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>This personal website showcases my work, skills, and achievements with animations and smooth design.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <a href="portfolio.html" class="back-btn">⬅ Back to Home</a>
+  </section>
+
+  <footer>
+    © 2025 Polupalli Surya Narayana — All Rights Reserved
+  </footer>
+
+</body>
+</html>

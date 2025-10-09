@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Polupalli Surya Narayana</title>
+  <meta name="description" content="About Polupalli Surya Narayana, a passionate Web Developer and AI/ML Enthusiast. Learn about his skills, journey, and projects.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #fff;
+      --accent-color: #e6e1db;
+      --bg-overlay: rgba(0,0,0,0.6);
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--primary-color);
+      background: url('images/aboutback.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Dark overlay for readability */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--bg-overlay);
+      z-index: -1;
+    }
+
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 80px 10%;
+      gap: 40px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-img {
+      flex: 1 1 300px;
+      text-align: center;
+      animation: slideInRight 1s ease forwards;
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .about-img img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-img img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.7);
+    }
+
+    .about-text {
+      flex: 1 1 500px;
+      animation: slideInLeft 1s ease forwards;
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .about-text h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #f1f1f1;
+    }
+
+    .highlight {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent-color);
+      color: var(--primary-color);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      font-size: 0.9rem;
+      backdrop-filter: blur(5px);
+    }
+
+    @media (max-width: 768px) {
+      section { flex-direction: column; text-align: center; }
+      .about-img img { width: 220px; height: 220px; margin-bottom: 25px; }
+      .about-text h1, .about-text p { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<section id="about">
+  <div class="about-img">
+    <img src="images/Surya.jpg" alt="Polupalli Surya Narayana">
+  </div>
+
+  <div class="about-text">
+    <h1>About Me</h1>
+    <p>Hello! I'm <span class="highlight">Polupalli Surya Narayana</span> — a passionate <span class="highlight">Web Developer</span> and <span class="highlight">AI/ML Enthusiast</span> who loves turning ideas into meaningful digital experiences.</p>
+
+    <p>My journey started with curiosity about how technology connects people and simplifies lives. Over time, I’ve gained experience in <span class="highlight">HTML, CSS, JavaScript, React, Python</span>, and I’m exploring modern frameworks like <span class="highlight">TensorFlow</span> and <span class="highlight">Flask</span> to build full-stack applications.</p>
+
+    <a class="btn" href="portfolio.html">Back to Home</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Polupalli Surya Narayana — All Rights Reserved
+</footer>
+
+</body>
+</html>
