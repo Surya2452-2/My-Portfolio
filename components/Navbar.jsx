@@ -11,7 +11,6 @@ const links = [
   { href: "/projects", label: "Projects" },
   { href: "/skills", label: "Skills" },
   { href: "/education", label: "Education" },
-  { href: "/contact", label: "Contact" },
 ];
 
 function ThemeToggle() {
@@ -95,6 +94,13 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <Link
+              href="/contact"
+              className={`${styles.contactCta} ${pathname === "/contact" ? styles.contactCtaActive : ""}`}
+              aria-current={pathname === "/contact" ? "page" : undefined}
+            >
+              Contact
+            </Link>
             <ThemeToggle />
           </div>
         </nav>

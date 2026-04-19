@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SocialLinks from "@/components/SocialLinks";
+import { projects } from "@/data/projects";
 import styles from "./page.module.css";
 
 const modules = [
@@ -10,6 +11,8 @@ const modules = [
   { href: "/education", title: "Education", text: "Academic foundation behind my engineering mindset." },
   { href: "/contact", title: "Contact", text: "Let us collaborate on something meaningful." },
 ];
+
+const featuredProjects = projects.slice(0, 3);
 
 export default function Home() {
   return (
@@ -21,17 +24,18 @@ export default function Home() {
             <h1>Polupalli Surya Narayana</h1>
             <p className={styles.role}>Frontend Engineer - AI/ML Builder</p>
             <p className={styles.tagline}>
-              I build modern, high-clarity digital products with thoughtful UX and strong implementation.
+              I help teams ship faster by building clear, high-performance web products with measurable impact.
             </p>
 
             <div className={styles.actions}>
               <Link href="/projects" className="btn btnPrimary">
-                View Projects
-              </Link>
-              <Link href="/contact" className="btn btnGhost">
-                Contact
+                Explore Case Studies
               </Link>
             </div>
+            <p className={styles.secondaryAction}>
+              Open to internships and collaboration.
+              <Link href="/contact"> Start a conversation</Link>
+            </p>
 
             <SocialLinks />
           </article>
@@ -57,6 +61,32 @@ export default function Home() {
               <p>{item.text}</p>
             </Link>
           ))}
+        </section>
+
+        <section className={styles.featured} data-reveal>
+          <header className={styles.featuredHeader}>
+            <p className="sectionBadge">Proof-Driven Work</p>
+            <h2>Case studies with measurable outcomes</h2>
+          </header>
+
+          <div className={styles.featuredGrid}>
+            {featuredProjects.map((project) => (
+              <article key={project.slug} className={`${styles.caseCard} surface`}>
+                <h3>{project.title}</h3>
+                <p>{project.impactSummary}</p>
+
+                <div className={styles.chips}>
+                  {project.proofChips.map((chip) => (
+                    <span key={chip}>{chip}</span>
+                  ))}
+                </div>
+
+                <Link href={`/projects/${project.slug}`} className="btn btnGhost">
+                  Read Case Study
+                </Link>
+              </article>
+            ))}
+          </div>
         </section>
       </div>
     </section>

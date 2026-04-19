@@ -33,6 +33,20 @@
   max-width: 60ch;
 }
 
+.context {
+  margin: 0 auto 1.1rem;
+  max-width: 56ch;
+  border: 1px solid color-mix(in oklab, var(--accent) 48%, var(--border-soft));
+  border-radius: 0.7rem;
+  background: color-mix(in oklab, var(--accent) 10%, transparent);
+  padding: 0.65rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.context strong {
+  color: var(--text-primary);
+}
+
 .social {
   margin-top: 1.2rem;
 }

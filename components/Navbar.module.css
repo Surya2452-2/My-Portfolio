@@ -103,6 +103,28 @@
   transition: transform var(--motion-fast), border-color var(--motion-fast);
 }
 
+.contactCta {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast), background-color var(--motion-fast);
+}
+
+.contactCta:hover,
+.contactCta:focus-visible {
+  background: var(--accent-strong);
+  transform: translateY(-0.5px);
+  box-shadow: 0 6px 14px color-mix(in oklab, var(--accent) 36%, transparent);
+}
+
+.contactCtaActive {
+  background: var(--accent-strong);
+}
+
 .themeBtn:hover,
 .themeBtn:focus-visible {
   border-color: var(--accent);
@@ -145,7 +167,8 @@
   }
 
   .link,
-  .themeBtn {
+  .themeBtn,
+  .contactCta {
     text-align: center;
   }
 }

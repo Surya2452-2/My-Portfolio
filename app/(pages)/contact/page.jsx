@@ -1,4 +1,5 @@
-﻿import SocialLinks from "@/components/SocialLinks";
+import SocialLinks from "@/components/SocialLinks";
+import { getProjectBySlug } from "@/data/projects";
 import styles from "./contact.module.css";
 
 export const metadata = {
@@ -6,7 +7,11 @@ export const metadata = {
   description: "Get in touch for collaboration, frontend work, and AI-focused projects.",
 };
 
-export default function Contact() {
+export default async function Contact({ searchParams }) {
+  const params = await searchParams;
+  const topic = typeof params?.topic === "string" ? params.topic : "";
+  const referencedProject = topic ? getProjectBySlug(topic) : null;
+
   return (
     <section className={styles.page}>
       <div className="container">
@@ -16,6 +21,13 @@ export default function Contact() {
           <p className={styles.copy}>
             Open to internships, freelance opportunities, and collaborative product work.
           </p>
+
+          {referencedProject ? (
+            <p className={styles.context}>
+              You are reaching out about <strong>{referencedProject.title}</strong>. I can help with a
+              similar workflow, from product framing to execution.
+            </p>
+          ) : null}
 
           <a
             className="btn btnPrimary"
@@ -34,4 +46,3 @@ export default function Contact() {
     </section>
   );
 }
-
