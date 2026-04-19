@@ -1,39 +1,63 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import Footer from '@/components/Footer';
-import styles from './about.module.css';
+﻿import Image from "next/image";
+import Link from "next/link";
+import styles from "./about.module.css";
 
 export const metadata = {
-  title: 'About — Polupalli Surya Narayana',
-  description: 'About Polupalli Surya Narayana, a passionate Web Developer and AI/ML Enthusiast. Learn about his skills, journey, and projects.',
+  title: "About - Polupalli Surya Narayana",
+  description: "About Polupalli Surya Narayana, web developer and AI/ML enthusiast.",
 };
+
+const pillars = [
+  "Human-centered UI and frontend engineering",
+  "AI/ML problem-solving with practical product outcomes",
+  "Consistent execution from concept to shipped experience",
+];
 
 export default function About() {
   return (
-    <>
-      <section className={styles.section}>
-        <div className={styles.aboutImg}>
-          <Image 
-            src="/images/Surya.jpg" 
-            alt="Polupalli Surya Narayana" 
-            width={280}
-            height={280}
-            priority
-            className={styles.image}
-          />
-        </div>
+    <section className={styles.page}>
+      <div className="container">
+        <article className={`${styles.panel} surface`} data-reveal>
+          <div className={styles.media}>
+            <Image
+              src="/images/Surya.jpg"
+              alt="Polupalli Surya Narayana"
+              width={350}
+              height={410}
+              className={styles.photo}
+            />
+          </div>
 
-        <div className={styles.aboutText}>
-          <h1>About Me</h1>
-          <p>Hello! I&apos;m <span className={styles.highlight}>Polupalli Surya Narayana</span> — a passionate <span className={styles.highlight}>Web Developer</span> and <span className={styles.highlight}>AI/ML Enthusiast</span> who loves turning ideas into meaningful digital experiences.</p>
+          <div className={styles.content}>
+            <p className={`sectionBadge ${styles.eyebrow}`}>02 / About</p>
+            <h1>Building useful products with clear design and strong code.</h1>
+            <p>
+              I am Polupalli Surya Narayana, a developer focused on web applications and applied AI.
+              My approach combines clean architecture, visual clarity, and measurable user outcomes.
+            </p>
+            <p>
+              I enjoy turning ideas into polished digital products using React, Next.js, Python, and
+              machine learning workflows.
+            </p>
 
-          <p>My journey started with curiosity about how technology connects people and simplifies lives. Over time, I&apos;ve gained experience in <span className={styles.highlight}>HTML, CSS, JavaScript, React, Python</span>, and I&apos;m exploring modern frameworks like <span className={styles.highlight}>TensorFlow</span> and <span className={styles.highlight}>Flask</span> to build full-stack applications.</p>
+            <ul className={styles.list}>
+              {pillars.map((pillar) => (
+                <li key={pillar}>{pillar}</li>
+              ))}
+            </ul>
 
-          <Link href="/" className={styles.btn}>Back to Home</Link>
-        </div>
-      </section>
-
-      <Footer />
-    </>
+            <div className={styles.actions}>
+              <Link href="/projects" className="btn btnPrimary">
+                Explore Projects
+              </Link>
+              <Link href="/contact" className="btn btnGhost">
+                Work Together
+              </Link>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
   );
 }
+

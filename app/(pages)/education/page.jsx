@@ -1,57 +1,62 @@
-import Link from 'next/link';
-import Footer from '@/components/Footer';
-import styles from './education.module.css';
+﻿import Link from "next/link";
+import styles from "./education.module.css";
 
 export const metadata = {
-  title: 'Education — Polupalli Surya Narayana',
-  description: 'My educational background and qualifications.',
+  title: "Education - Polupalli Surya Narayana",
+  description: "Academic timeline and learning background.",
 };
 
 const educationData = [
   {
     id: 1,
-    title: 'Bachelor of Technology — Computer Science',
-    year: 'VSM College of Engineering, JNTUK | 2022 - 2026',
-    description: 'Focused on software development, AI/ML, and full-stack web development. Built multiple projects and maintained excellent academic performance.',
-    side: 'left',
+    title: "Bachelor of Technology - Computer Science",
+    period: "VSM College of Engineering, JNTUK | 2022 - 2026",
+    description:
+      "Focused on software engineering, AI/ML, and full-stack product development through project-led learning.",
   },
   {
     id: 2,
-    title: 'Intermediate Education',
-    year: 'VSM Junior College | 2020 - 2022',
-    description: 'Studied MPC with distinction, building a strong foundation in mathematics and logical problem-solving.',
-    side: 'right',
+    title: "Intermediate Education",
+    period: "VSM Junior College | 2020 - 2022",
+    description: "Built strong mathematics and analytical foundations with MPC specialization.",
   },
   {
     id: 3,
-    title: 'Secondary School Education',
-    year: 'N.M.R.Z.P High School | 2019 - 2020',
-    description: 'Completed secondary education with top marks and developed an early interest in technology and innovation.',
-    side: 'left',
+    title: "Secondary School Education",
+    period: "N.M.R.Z.P High School | 2019 - 2020",
+    description: "Graduated with top marks and developed an early interest in technology.",
   },
 ];
 
 export default function Education() {
   return (
-    <>
-      <section className={styles.section}>
-        <h1>My Education</h1>
-        <p className={styles.intro}>A look at my academic journey and the milestones that shaped my knowledge and passion for technology.</p>
+    <section className={styles.page}>
+      <div className="container">
+        <header className={styles.header} data-reveal>
+          <p className="sectionBadge">05 / Education</p>
+          <h1>Academic path that shaped my engineering mindset.</h1>
+          <p className={styles.lead}>
+            A learning journey grounded in software fundamentals, problem solving, and applied AI.
+          </p>
+        </header>
 
         <div className={styles.timeline}>
           {educationData.map((item) => (
-            <div key={item.id} className={`${styles.timelineItem} ${styles[item.side]}`}>
-              <h3>{item.title}</h3>
-              <span>{item.year}</span>
+            <article key={item.id} className={`${styles.item} surface`} data-reveal>
+              <h2>{item.title}</h2>
+              <span>{item.period}</span>
               <p>{item.description}</p>
-            </div>
+            </article>
           ))}
         </div>
 
-        <Link href="/" className={styles.backBtn}>⬅ Back to Home</Link>
-      </section>
-
-      <Footer />
-    </>
+        <div className={styles.backWrap} data-reveal>
+          <Link href="/" className="btn btnGhost">
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
+

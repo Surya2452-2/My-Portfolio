@@ -1,56 +1,78 @@
-import Link from 'next/link';
-import Footer from '@/components/Footer';
-import styles from './projects.module.css';
+﻿import Link from "next/link";
+import styles from "./projects.module.css";
 
 export const metadata = {
-  title: 'Projects — Polupalli Surya Narayana',
-  description: 'Explore my projects showcasing web development, AI, and machine learning projects.',
+  title: "Projects - Polupalli Surya Narayana",
+  description: "Web, AI, and machine learning projects by Polupalli Surya Narayana.",
 };
 
 const projects = [
   {
     id: 1,
-    title: 'Surya Airlines',
-    description: 'A full-stack airline booking website with user authentication, flight listings, and booking management.',
+    title: "Surya Airlines",
+    description: "Full-stack booking platform with authentication, flight inventory, and booking flow.",
+    stack: "React, Node.js, SQL",
+    link: null,
   },
   {
     id: 2,
-    title: 'Student Activity Portal',
-    description: 'Developed a portal for managing student activities with an admin dashboard and secure backend integration.',
+    title: "Student Activity Portal",
+    description: "Activity management portal with role-aware dashboard and secure admin capabilities.",
+    stack: "React, Express, MySQL",
+    link: null,
   },
   {
     id: 3,
-    title: 'AI-Based Chatbot',
-    description: 'Created a conversational chatbot using Python and NLP to answer college-related queries intelligently.',
+    title: "AI-Based Chatbot",
+    description: "NLP-driven assistant for college-related support queries and smart recommendations.",
+    stack: "Python, NLP, Flask",
+    link: null,
   },
   {
     id: 4,
-    title: 'Portfolio Website',
-    description: 'This personal website showcases my work, skills, and achievements with animations and smooth design.',
+    title: "Portfolio Website",
+    description: "Personal brand experience designed for clarity, performance, and visual impact.",
+    stack: "Next.js, CSS Modules",
+    link: null,
   },
 ];
 
 export default function Projects() {
   return (
-    <>
-      <section className={styles.section}>
-        <h1>My Projects</h1>
-        <p className={styles.intro}>A collection of my favorite projects that showcase my skills in web development, AI, and machine learning.</p>
+    <section className={styles.page}>
+      <div className="container">
+        <header className={styles.header} data-reveal>
+          <p className="sectionBadge">03 / Projects</p>
+          <h1>Selected work with practical impact.</h1>
+          <p className={styles.lead}>
+            A curated set of builds focused on product value, technical quality, and usability.
+          </p>
+        </header>
 
-        <div className={styles.projectsContainer}>
+        <div className={styles.grid}>
           {projects.map((project) => (
-            <div key={project.id} className={styles.projectCard}>
-              <h3>{project.title}</h3>
+            <article key={project.id} className={`${styles.card} surface`} data-reveal>
+              <h2>{project.title}</h2>
               <p>{project.description}</p>
-              <a href="#" target="_blank" rel="noopener noreferrer">View Project</a>
-            </div>
+              <span className={styles.stack}>{project.stack}</span>
+              {project.link ? (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btnGhost">
+                  View Project
+                </a>
+              ) : (
+                <span className={styles.pending}>Link coming soon</span>
+              )}
+            </article>
           ))}
         </div>
 
-        <Link href="/" className={styles.backBtn}>⬅ Back to Home</Link>
-      </section>
-
-      <Footer />
-    </>
+        <div className={styles.backWrap} data-reveal>
+          <Link href="/" className="btn btnGhost">
+            Back to Home
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
+
