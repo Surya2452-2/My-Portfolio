@@ -27,6 +27,12 @@ export default function Projects() {
               <p className={styles.impactLabel}>What changed</p>
               <p>{project.impactSummary}</p>
 
+              <div className={styles.stack} aria-label={`${project.title} technology stack`}>
+                {project.stack.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+
               <div className={styles.chips} aria-label={`${project.title} proof points`}>
                 {project.proofChips.map((chip) => (
                   <span key={chip}>{chip}</span>

@@ -12,6 +12,17 @@ const modules = [
   { href: "/contact", title: "Contact", text: "Let us collaborate on something meaningful." },
 ];
 
+const trustPoints = [
+  { label: "B.Tech CSE (AI & ML)", value: "2026 Graduate" },
+  { label: "73% Aggregate", value: "Strong academic performance" },
+  { label: "Tata Data Analytics", value: "Job Simulation" },
+  { label: "Deloitte Cyber", value: "Job Simulation" },
+  { label: "BCG Strategy", value: "Job Simulation" },
+  { label: "GitHub Profile", value: "active contributions" },
+  { label: "LinkedIn Profile", value: "real-time recruiter updates" },
+  { label: "Resume", value: "Download ready" },
+];
+
 const featuredProjects = projects.slice(0, 3);
 
 export default function Home() {
@@ -27,16 +38,21 @@ export default function Home() {
               I help teams ship faster by building clear, high-performance web products with measurable impact.
             </p>
 
-            <div className={styles.actions}>
-              <Link href="/projects" className="btn btnPrimary">
-                Explore Case Studies
+            <div className={styles.heroActions}>
+              <Link href="/contact" className="btn btnPrimary">
+                Hire Me
               </Link>
+              <Link href="/projects" className="btn btnGhost">
+                View Projects
+              </Link>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btnSecondary">
+                Download Resume
+              </a>
             </div>
-            <p className={styles.secondaryAction}>
-              Open to internships and collaboration.
-              <Link href="/contact"> Start a conversation</Link>
-            </p>
 
+            <p className={styles.secondaryAction}>
+              Open to internships, collaborations, and full-time product roles.
+            </p>
             <SocialLinks />
           </article>
 
@@ -61,6 +77,21 @@ export default function Home() {
               <p>{item.text}</p>
             </Link>
           ))}
+        </section>
+
+        <section className={styles.trustSection} data-reveal>
+          <header className={styles.trustHeader}>
+            <p className="sectionBadge">Trusted signals</p>
+            <h2>Recruiters can recognize credibility immediately.</h2>
+          </header>
+          <div className={styles.trustGrid}>
+            {trustPoints.map((point) => (
+              <div key={point.label} className={styles.trustCard}>
+                <strong>{point.label}</strong>
+                <span>{point.value}</span>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className={styles.featured} data-reveal>

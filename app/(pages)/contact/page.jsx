@@ -24,19 +24,56 @@ export default async function Contact({ searchParams }) {
 
           {referencedProject ? (
             <p className={styles.context}>
-              You are reaching out about <strong>{referencedProject.title}</strong>. I can help with a
-              similar workflow, from product framing to execution.
+              You are reaching out about <strong>{referencedProject.title}</strong>. I can help with a similar
+              workflow, from product framing to execution.
             </p>
           ) : null}
 
-          <a
-            className="btn btnPrimary"
-            href="https://www.linkedin.com/in/surya-polupalli-5b794025a/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Connect on LinkedIn
-          </a>
+          <div className={styles.actions}>
+            <a className="btn btnPrimary" href="mailto:polupallisuryanarayana@gmail.com" aria-label="Email Surya">
+              Email Me
+            </a>
+            <a className="btn btnSecondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              Download Resume
+            </a>
+            <a
+              className="btn btnGhost"
+              href="https://github.com/Surya2452-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              className="btn btnGhost"
+              href="https://www.linkedin.com/in/surya-polupalli-5b794025a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </div>
+
+          <div className={styles.contactCards}>
+            <article className={styles.contactCard}>
+              <h2>Email</h2>
+              <p>
+                <a href="mailto:polupallisuryanarayana@gmail.com">polupallisuryanarayana@gmail.com</a>
+              </p>
+            </article>
+            <article className={styles.contactCard}>
+              <h2>Resume</h2>
+              <p>
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                  Download a concise, recruiter-ready resume
+                </a>
+              </p>
+            </article>
+            <article className={styles.contactCard}>
+              <h2>Social</h2>
+              <p>Find me on GitHub and LinkedIn for work samples and professional context.</p>
+            </article>
+          </div>
 
           <div className={styles.social}>
             <SocialLinks large />

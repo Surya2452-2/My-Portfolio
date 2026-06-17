@@ -34,7 +34,14 @@ export default function Skills() {
                 <h2>{skill.title}</h2>
                 <span>{skill.progress}%</span>
               </div>
-              <div className={styles.track} role="progressbar" aria-valuenow={skill.progress} aria-valuemin={0} aria-valuemax={100}>
+              <div
+                className={styles.track}
+                role="progressbar"
+                aria-valuenow={skill.progress}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuetext={`${skill.title} proficiency ${skill.progress} percent`}
+              >
                 <div className={styles.fill} style={{ width: `${skill.progress}%` }} />
               </div>
             </article>

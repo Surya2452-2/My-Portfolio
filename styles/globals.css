@@ -7,8 +7,8 @@
   --radius-sm: 0.75rem;
   --radius-md: 1rem;
   --radius-lg: 1.4rem;
-  --shadow-soft: 0 18px 40px rgba(5, 10, 30, 0.2);
-  --shadow-elevated: 0 24px 60px rgba(5, 10, 30, 0.34);
+  --shadow-soft: 0 18px 32px rgba(3, 9, 30, 0.16);
+  --shadow-elevated: 0 24px 48px rgba(3, 9, 30, 0.2);
   --container-width: 1160px;
   --space-1: 0.5rem;
   --space-2: 0.75rem;
@@ -22,27 +22,29 @@
 }
 
 html[data-theme="dark"] {
-  --bg: #070b16;
-  --surface: #0d1323;
-  --surface-elevated: #121b31;
-  --text-primary: #f4f7ff;
-  --text-secondary: #b4bed1;
-  --border-soft: rgba(148, 163, 184, 0.24);
-  --accent: #3dd6b6;
-  --accent-strong: #1fa98e;
-  --accent-contrast: #06241f;
+  --bg: #081024;
+  --surface: #111c33;
+  --surface-elevated: #162644;
+  --text-primary: #f8fbff;
+  --text-secondary: #c8d4ec;
+  --text-muted: #94a2bf;
+  --border-soft: rgba(173, 193, 219, 0.18);
+  --accent: #26c8ad;
+  --accent-strong: #179481;
+  --accent-contrast: #041411;
 }
 
 html[data-theme="light"] {
-  --bg: #eef2f8;
+  --bg: #f7f9fc;
   --surface: #ffffff;
-  --surface-elevated: #f4f7fc;
-  --text-primary: #0f172b;
-  --text-secondary: #4d5a71;
+  --surface-elevated: #eff4fb;
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --border-soft: rgba(15, 23, 43, 0.14);
-  --accent: #007f7a;
-  --accent-strong: #005e5b;
-  --accent-contrast: #f1fffd;
+  --accent: #006d7a;
+  --accent-strong: #004f5f;
+  --accent-contrast: #ffffff;
 }
 
 *,
@@ -65,7 +67,21 @@ body {
     radial-gradient(circle at 16% 0%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 35%),
     radial-gradient(circle at 100% 20%, color-mix(in oklab, var(--accent) 8%, transparent), transparent 32%),
     var(--bg);
-  line-height: 1.65;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .routeShell {
@@ -102,14 +118,15 @@ h3,
 h4 {
   margin: 0;
   font-family: var(--font-display);
-  line-height: 1.12;
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 p {
   margin: 0;
   color: var(--text-secondary);
-  max-width: 70ch;
+  max-width: 65ch;
+  font-size: 1rem;
 }
 
 a {
@@ -154,24 +171,34 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
+  min-height: 3rem;
+  min-width: 3rem;
   border-radius: 999px;
-  padding: 0.75rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  padding: 0.95rem 1.35rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
   transition: transform var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast), color var(--motion-fast), box-shadow var(--motion-fast);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .sectionBadge {
   width: fit-content;
-  border: 1px solid color-mix(in oklab, var(--accent) 58%, var(--border-soft));
+  border: 1px solid var(--accent);
   border-radius: 999px;
   color: var(--accent);
-  background: color-mix(in oklab, var(--accent) 10%, transparent);
-  padding: 0.26rem 0.62rem;
+  background: color-mix(in oklab, var(--accent) 16%, var(--surface));
+  padding: 0.32rem 0.7rem;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -184,8 +211,22 @@ img {
 .btnPrimary:hover,
 .btnPrimary:focus-visible {
   background: var(--accent-strong);
-  transform: translateY(-0.5px);
-  box-shadow: 0 6px 14px color-mix(in oklab, var(--accent) 36%, transparent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px color-mix(in oklab, var(--accent) 34%, transparent);
+}
+
+.btnSecondary {
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+.btnSecondary:hover,
+.btnSecondary:focus-visible {
+  color: var(--accent-contrast);
+  background: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px color-mix(in oklab, var(--accent) 30%, transparent);
 }
 
 .btnGhost {
@@ -197,7 +238,8 @@ img {
 .btnGhost:hover,
 .btnGhost:focus-visible {
   border-color: var(--accent);
-  transform: translateY(-0.5px);
+  background: color-mix(in oklab, var(--accent) 12%, var(--surface-elevated));
+  transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(4, 10, 24, 0.16);
 }
 
@@ -229,9 +271,14 @@ img {
   transform: translateY(0);
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {

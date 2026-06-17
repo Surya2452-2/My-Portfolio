@@ -5,12 +5,12 @@
 }
 
 .links a {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.7rem;
+  border-radius: 0.9rem;
   border: 1px solid var(--border-soft);
   background: var(--surface-elevated);
   color: var(--text-primary);
@@ -21,21 +21,21 @@
 .links a:focus-visible {
   transform: translateY(-2px);
   border-color: var(--accent);
-  background: color-mix(in oklab, var(--accent) 14%, var(--surface-elevated));
+  background: color-mix(in oklab, var(--accent) 18%, var(--surface-elevated));
 }
 
 .links svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
   fill: currentColor;
 }
 
 .large a {
-  width: 3rem;
-  height: 3rem;
+  width: 3.25rem;
+  height: 3.25rem;
 }
 
 .large svg {
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }

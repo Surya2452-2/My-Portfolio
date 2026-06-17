@@ -130,6 +130,38 @@ export const projects = [
     repoUrl: "https://github.com/Surya2452-2",
     demoUrl: null,
   },
+  {
+    slug: "employee-attendance-system",
+    title: "Employee Attendance System",
+    role: "Frontend + Backend Developer",
+    duration: "9 weeks",
+    stack: ["React", "Node.js", "Express", "MongoDB"],
+    impactSummary:
+      "Built a streamlined attendance management tool that reduces payroll errors and improves team accountability.",
+    problem:
+      "Manual attendance tracking and disconnected reporting caused payroll delays and inaccurate work-hour records.",
+    approach:
+      "Designed an intuitive employee dashboard with biometric-friendly check-in flows, manager approvals, and real-time attendance analytics.",
+    keyDecisions: [
+      "Used role-based dashboards to separate employee, manager, and HR workflows.",
+      "Implemented real-time attendance summaries to reduce reconciliation time.",
+      "Focused on responsive controls and accessible forms for cross-device use.",
+    ],
+    outcome:
+      "Delivered a reliable attendance platform that improved record accuracy, reduced manual errors, and accelerated payroll processing.",
+    metrics: [
+      { label: "Payroll Accuracy", value: "+24%" },
+      { label: "Attendance Reporting Time", value: "-45%" },
+      { label: "Manager Review Speed", value: "+38%" },
+    ],
+    proofChips: ["Payroll accuracy +24%", "Real-time reporting", "Complexity: Medium"],
+    screenshots: [
+      { src: "/images/projectsback.jpg", alt: "Attendance dashboard overview" },
+      { src: "/images/aboutback.jpg", alt: "Employee attendance timeline preview" },
+    ],
+    repoUrl: "https://github.com/Surya2452-2",
+    demoUrl: null,
+  },
 ];
 
 export function getProjectBySlug(slug) {

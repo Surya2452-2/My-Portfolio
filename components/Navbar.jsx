@@ -101,6 +101,14 @@ export default function Navbar() {
             >
               Contact
             </Link>
+            <a
+              href="/resume.pdf"
+              download
+              className={styles.resumeCta}
+              aria-label="Download resume"
+            >
+              Resume
+            </a>
             <ThemeToggle />
           </div>
         </nav>
