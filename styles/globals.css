@@ -31,9 +31,9 @@ html[data-theme="dark"] {
   --text-secondary: #c8d4ec;
   --text-muted: #94a2bf;
   --border-soft: rgba(173, 193, 219, 0.18);
-  --accent: #26c8ad;
-  --accent-strong: #179481;
-  --accent-contrast: #041411;
+  --accent: #1fa89f;
+  --accent-strong: #148a7e;
+  --accent-contrast: #ffffff;
 }
 
 html[data-theme="light"] {
@@ -186,17 +186,31 @@ img {
 }
 
 :focus-visible {
-  outline: var(--focus-ring);
+  outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
 
-.btn:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
 .link:focus-visible,
 .themeBtn:focus-visible,
 .menuBtn:focus-visible,
 .resumeCta:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 4px;
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .skip-link {
@@ -233,14 +247,24 @@ img {
 .btnPrimary {
   color: var(--accent-contrast);
   background: var(--accent);
-  border: 1px solid transparent;
+  border: 2px solid var(--accent);
+  font-weight: 700;
 }
 
-.btnPrimary:hover,
+.btnPrimary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px color-mix(in oklab, var(--accent) 42%, transparent);
+}
+
 .btnPrimary:focus-visible {
   background: var(--accent-strong);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 22px color-mix(in oklab, var(--accent) 34%, transparent);
+  border-color: var(--accent-strong);
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px color-mix(in oklab, var(--accent) 42%, transparent);
 }
 
 .btnSecondary {

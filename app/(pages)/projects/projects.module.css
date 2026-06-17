@@ -41,24 +41,21 @@
   padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
   transition: transform var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
-  border-left: 2px solid color-mix(in oklab, var(--accent) 50%, transparent);
-  min-height: 300px;
+  border-left: 3px solid var(--accent);
+  min-height: 320px;
+  border-radius: var(--radius-md);
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in oklab, var(--accent) 55%, var(--border-soft));
-  box-shadow: var(--shadow-soft);
+  transform: translateY(-4px);
+  border-left-color: var(--accent-strong);
+  box-shadow: 0 12px 32px rgba(31, 168, 159, 0.18);
 }
 
-.card:nth-child(2n) {
-  transform: translateY(6px);
-}
-
-.card:nth-child(2n):hover {
-  transform: translateY(3px);
+.card:focus-within {
+  box-shadow: 0 0 0 3px var(--accent);
 }
 
 .cardTop {
@@ -82,20 +79,27 @@
 }
 
 .duration {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+  font-size: 0.82rem;
+  color: var(--accent);
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.description,
-.problem {
-  font-size: 0.96rem;
+.description {
   color: var(--text-secondary);
   line-height: 1.75;
+  font-size: 0.98rem;
 }
 
 .problem {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
   font-weight: 500;
+  padding: var(--space-3);
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+  border-radius: var(--radius-sm);
 }
 
 .stack,
@@ -120,8 +124,24 @@
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
+  gap: var(--space-2);
   margin-top: auto;
+}
+
+.actions .btn {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+  }
+  
+  .actions .btn {
+    width: 100%;
+  }
 }
 
 .unavailable {
@@ -158,5 +178,51 @@
   .card:nth-child(2n),
   .card:nth-child(2n):hover {
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .header h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+  
+  .grid {
+    gap: var(--space-3);
+  }
+  
+  .card {
+    padding: var(--space-3);
+    min-height: 300px;
+  }
+  
+  .card h2 {
+    font-size: 1.1rem;
+  }
+  
+  .duration {
+    font-size: 0.75rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+  
+  .problem {
+    padding: var(--space-2);
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .card {
+    padding: var(--space-3);
+    gap: var(--space-3);
+    min-height: 280px;
+  }
+  
+  .actions .btn {
+    min-width: 120px;
+    font-size: 0.9rem;
+    min-height: 44px;
   }
 }

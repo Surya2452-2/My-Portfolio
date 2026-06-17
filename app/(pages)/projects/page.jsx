@@ -41,16 +41,16 @@ export default function Projects() {
               </div>
 
               <div className={styles.actions}>
-                <Link href={`/projects/${project.slug}`} className="btn btnGhost">
-                  View Case Study
+                <Link href={`/projects/${project.slug}`} className="btn btnPrimary">
+                  Read Case Study →
                 </Link>
                 {project.demoUrl ? (
                   <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btnSecondary">
-                    View Live Demo
+                    Live Demo ↗
                   </a>
                 ) : (
                   <span className={styles.unavailable} aria-label="Demo unavailable">
-                    Live demo unavailable
+                    Demo unavailable
                   </span>
                 )}
               </div>

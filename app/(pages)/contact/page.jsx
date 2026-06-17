@@ -30,10 +30,10 @@ export default async function Contact({ searchParams }) {
           ) : null}
 
           <div className={styles.actions}>
-            <a className="btn btnPrimary" href="mailto:polupallisuryanarayana@gmail.com" aria-label="Email Surya">
-              Email Me
+            <a className="btn btnPrimary" href="mailto:polupallisuryanarayana@gmail.com" aria-label="Email Surya to start a conversation">
+              Get in Touch Now
             </a>
-            <a className="btn btnSecondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a className="btn btnSecondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download resume PDF">
               Download Resume
             </a>
             <a
@@ -41,16 +41,18 @@ export default async function Contact({ searchParams }) {
               href="https://github.com/Surya2452-2"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="View GitHub profile"
             >
-              Explore GitHub
+              Explore GitHub ↗
             </a>
             <a
               className="btn btnGhost"
               href="https://www.linkedin.com/in/surya-polupalli-5b794025a/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Connect on LinkedIn"
             >
-              View LinkedIn
+              Connect on LinkedIn ↗
             </a>
           </div>
 

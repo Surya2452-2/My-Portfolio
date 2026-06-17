@@ -102,7 +102,47 @@
 }
 
 @media (max-width: 640px) {
+  .panel {
+    padding: var(--space-4);
+  }
+  
+  .panel h1 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+  
+  .copy {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  
   .actions {
     flex-direction: column;
+  }
+  
+  .actions .btn {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contactCards {
+    gap: var(--space-3);
+  }
+  
+  .contactCard {
+    padding: var(--space-3);
+  }
+}
+
+@media (max-width: 380px) {
+  .panel {
+    padding: var(--space-3);
+  }
+  
+  .actions .btn {
+    font-size: 0.95rem;
+    min-height: 44px;
   }
 }
