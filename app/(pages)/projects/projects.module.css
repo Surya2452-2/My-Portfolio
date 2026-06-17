@@ -1,27 +1,27 @@
 .page {
-  padding: 2.8rem 0 0;
+  padding: var(--space-6) 0 0;
 }
 
 .header :global(.sectionBadge) {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.5rem;
 }
 
 .header h1 {
   margin-top: 0.75rem;
-  font-size: clamp(1.85rem, 4vw, 2.8rem);
-  max-width: 20ch;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  max-width: 18ch;
 }
 
 .lead {
-  margin-top: 0.9rem;
+  margin-top: 1rem;
   font-size: 1rem;
-  max-width: 64ch;
+  max-width: 60ch;
   color: var(--text-secondary);
   line-height: 1.8;
 }
 
 .count {
-  margin-top: 0.75rem;
+  margin-top: 0.9rem;
   font-size: 0.85rem;
   font-family: var(--font-mono);
   letter-spacing: 0.05em;
@@ -30,21 +30,21 @@
 }
 
 .grid {
-  margin-top: 1.75rem;
+  margin-top: var(--space-5);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.1rem;
+  gap: var(--space-4);
 }
 
 .card {
   position: relative;
-  padding: 1.35rem;
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-3);
   transition: transform var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
   border-left: 2px solid color-mix(in oklab, var(--accent) 50%, transparent);
-  min-height: 250px;
+  min-height: 300px;
 }
 
 .card:hover {
@@ -61,23 +61,41 @@
   transform: translateY(3px);
 }
 
-.card h2 {
-  font-size: 1.08rem;
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  align-items: flex-start;
 }
 
-.impactLabel {
-  margin-top: -0.15rem;
-  font-size: 0.75rem;
+.card h2 {
+  font-size: 1.18rem;
+}
+
+.problemLabel {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
   font-family: var(--font-mono);
 }
 
-.card p {
+.duration {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.description,
+.problem {
   font-size: 0.96rem;
   color: var(--text-secondary);
   line-height: 1.75;
+}
+
+.problem {
+  font-weight: 500;
 }
 
 .stack,
@@ -91,46 +109,32 @@
 .chips span {
   width: fit-content;
   color: var(--accent);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 1px solid color-mix(in oklab, var(--accent) 55%, transparent);
-  padding: 0.22rem 0.5rem;
+  padding: 0.28rem 0.65rem;
   border-radius: 999px;
-}
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-}
-
-.meta span {
-  border: 1px solid var(--border-soft);
-  border-radius: 999px;
-  padding: 0.25rem 0.65rem;
 }
 
 .actions {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
   flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: auto;
 }
 
 .unavailable {
   border: 1px dashed var(--border-soft);
   border-radius: 999px;
-  padding: 0.35rem 0.7rem;
-  font-size: 0.82rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.86rem;
   color: var(--text-secondary);
 }
 
 .repoLink {
   width: fit-content;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -143,7 +147,7 @@
 }
 
 .backWrap {
-  margin-top: 1.4rem;
+  margin-top: var(--space-5);
 }
 
 @media (max-width: 840px) {

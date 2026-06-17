@@ -4,18 +4,20 @@
   --font-display: "Space Grotesk", "Segoe UI", sans-serif;
   --font-body: "Manrope", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", Consolas, monospace;
-  --radius-sm: 0.75rem;
+  --radius-sm: 0.5rem;
   --radius-md: 1rem;
-  --radius-lg: 1.4rem;
+  --radius-lg: 1.5rem;
   --shadow-soft: 0 18px 32px rgba(3, 9, 30, 0.16);
   --shadow-elevated: 0 24px 48px rgba(3, 9, 30, 0.2);
   --container-width: 1160px;
   --space-1: 0.5rem;
-  --space-2: 0.75rem;
-  --space-3: 1rem;
-  --space-4: 1.5rem;
-  --space-5: 2rem;
-  --space-6: 2.75rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --focus-ring: 3px solid var(--accent);
   --motion-ease: cubic-bezier(0.22, 0.7, 0.2, 1);
   --motion-fast: 220ms var(--motion-ease);
   --motion-medium: 420ms var(--motion-ease);
@@ -60,7 +62,6 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  position: relative;
   font-family: var(--font-body);
   color: var(--text-primary);
   background:
@@ -108,7 +109,7 @@ body::before {
     linear-gradient(to right, color-mix(in oklab, var(--border-soft) 45%, transparent) 1px, transparent 1px),
     linear-gradient(to bottom, color-mix(in oklab, var(--border-soft) 45%, transparent) 1px, transparent 1px);
   background-size: 34px 34px;
-  opacity: 0.2;
+  opacity: 0.12;
   mask-image: radial-gradient(circle at center, black 18%, transparent 78%);
 }
 
@@ -184,9 +185,36 @@ img {
   transition: transform var(--motion-fast), border-color var(--motion-fast), background-color var(--motion-fast), color var(--motion-fast), box-shadow var(--motion-fast);
 }
 
-.btn:focus-visible {
-  outline: 3px solid var(--accent);
+:focus-visible {
+  outline: var(--focus-ring);
   outline-offset: 4px;
+}
+
+.btn:focus-visible,
+.link:focus-visible,
+.themeBtn:focus-visible,
+.menuBtn:focus-visible,
+.resumeCta:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.3rem;
+  z-index: 9999;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  transform: translateY(-120%);
+  transition: transform 220ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 .sectionBadge {
@@ -252,33 +280,6 @@ img {
 [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.skip-link {
-  position: absolute;
-  left: 0.6rem;
-  top: 0.3rem;
-  transform: translateY(-150%);
-  background: var(--surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-soft);
-  border-radius: 0.5rem;
-  padding: 0.45rem 0.65rem;
-  z-index: 1200;
-}
-
-.skip-link:focus-visible {
-  transform: translateY(0);
-}
-
-:focus-visible,
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {

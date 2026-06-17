@@ -4,22 +4,19 @@ import SocialLinks from "@/components/SocialLinks";
 import { projects } from "@/data/projects";
 import styles from "./page.module.css";
 
-const modules = [
-  { href: "/about", title: "About", text: "Who I am, how I think, and what I care about." },
-  { href: "/projects", title: "Projects", text: "Real builds focused on impact and execution quality." },
-  { href: "/skills", title: "Skills", text: "Core technical strengths across frontend and AI." },
-  { href: "/education", title: "Education", text: "Academic foundation behind my engineering mindset." },
-  { href: "/contact", title: "Contact", text: "Let us collaborate on something meaningful." },
+const trustBar = [
+  { value: "2026 Graduate", label: "B.Tech CSE (AI & ML)" },
+  { value: "73% Aggregate", label: "Academic performance" },
+  { value: "3 Virtual Internships", label: "Practical learning in data, cyber, and strategy" },
+  { value: "AI & Web product focus", label: "Recruiter-ready execution" },
 ];
 
 const trustPoints = [
-  { label: "B.Tech CSE (AI & ML)", value: "2026 Graduate" },
-  { label: "73% Aggregate", value: "Strong academic performance" },
-  { label: "Tata Data Analytics", value: "Job Simulation" },
-  { label: "Deloitte Cyber", value: "Job Simulation" },
-  { label: "BCG Strategy", value: "Job Simulation" },
-  { label: "GitHub Profile", value: "active contributions" },
-  { label: "LinkedIn Profile", value: "real-time recruiter updates" },
+  { label: "Tata Data Analytics", value: "Simulation experience" },
+  { label: "Deloitte Cyber", value: "Simulation experience" },
+  { label: "BCG Strategy", value: "Simulation experience" },
+  { label: "GitHub", value: "Active project history" },
+  { label: "LinkedIn", value: "Recruiter-ready profile" },
   { label: "Resume", value: "Download ready" },
 ];
 
@@ -29,40 +26,50 @@ export default function Home() {
   return (
     <section className={styles.page}>
       <div className="container">
-        <div className={styles.grid}>
-          <article className={`${styles.intro} surface`} data-reveal>
+        <div className={styles.heroGrid}>
+          <article className={`${styles.hero} surface`} data-reveal>
             <p className={`sectionBadge ${styles.kicker}`}>01 / Home</p>
-            <h1>Polupalli Surya Narayana</h1>
-            <p className={styles.role}>Frontend Engineer - AI/ML Builder</p>
+            <h1>Surya Narayana Polupalli</h1>
+            <p className={styles.role}>AI & ML Engineer | Full Stack Developer</p>
             <p className={styles.tagline}>
-              I help teams ship faster by building clear, high-performance web products with measurable impact.
+              Building scalable web applications, AI-powered solutions, and modern user experiences that help teams ship with confidence.
             </p>
 
-            <div className={styles.heroActions}>
-              <Link href="/contact" className="btn btnPrimary">
-                Hire Me
-              </Link>
-              <Link href="/projects" className="btn btnGhost">
-                View Projects
-              </Link>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btnSecondary">
+            <div className={styles.primaryActions}>
+              <a
+                className="btn btnPrimary"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Download Resume
               </a>
+              <Link href="/projects" className="btn btnSecondary">
+                View Projects
+              </Link>
             </div>
 
-            <p className={styles.secondaryAction}>
-              Open to internships, collaborations, and full-time product roles.
-            </p>
-            <SocialLinks />
+            <div className={styles.trustBar}>
+              {trustBar.map((item) => (
+                <div key={item.value} className={styles.trustItem}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.socialStrip}>
+              <SocialLinks large />
+            </div>
           </article>
 
           <aside className={`${styles.visual} surface`} data-reveal>
             <div className={styles.photoWrap}>
               <Image
                 src="/images/Surya.jpg"
-                alt="Portrait of Polupalli Surya Narayana"
-                width={360}
-                height={430}
+                alt="Portrait of Surya Narayana Polupalli"
+                width={440}
+                height={520}
                 priority
                 className={styles.photo}
               />
@@ -70,19 +77,10 @@ export default function Home() {
           </aside>
         </div>
 
-        <section className={styles.modules} data-reveal>
-          {modules.map((item) => (
-            <Link key={item.href} href={item.href} className={`${styles.moduleCard} surface`}>
-              <h2>{item.title}</h2>
-              <p>{item.text}</p>
-            </Link>
-          ))}
-        </section>
-
         <section className={styles.trustSection} data-reveal>
           <header className={styles.trustHeader}>
             <p className="sectionBadge">Trusted signals</p>
-            <h2>Recruiters can recognize credibility immediately.</h2>
+            <h2>Recruiters see credibility before they reach the contact section.</h2>
           </header>
           <div className={styles.trustGrid}>
             {trustPoints.map((point) => (
@@ -96,15 +94,15 @@ export default function Home() {
 
         <section className={styles.featured} data-reveal>
           <header className={styles.featuredHeader}>
-            <p className="sectionBadge">Proof-Driven Work</p>
-            <h2>Case studies with measurable outcomes</h2>
+            <p className="sectionBadge">Proof-driven work</p>
+            <h2>Selected case studies that show problem, solution, stack, and result.</h2>
           </header>
 
           <div className={styles.featuredGrid}>
             {featuredProjects.map((project) => (
               <article key={project.slug} className={`${styles.caseCard} surface`}>
                 <h3>{project.title}</h3>
-                <p>{project.impactSummary}</p>
+                <p className={styles.description}>{project.impactSummary}</p>
 
                 <div className={styles.chips}>
                   {project.proofChips.map((chip) => (

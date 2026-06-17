@@ -15,7 +15,7 @@ export default function Projects() {
           <p className="sectionBadge">03 / Projects</p>
           <h1>Selected work with practical impact.</h1>
           <p className={styles.lead}>
-            Each project focuses on outcomes, constraints, and measurable improvements.
+            Each project reveals the challenge, solution, technology stack, and outcome.
           </p>
           <p className={styles.count}>{projects.length} proof-driven case studies</p>
         </header>
@@ -23,9 +23,16 @@ export default function Projects() {
         <div className={styles.grid}>
           {projects.map((project) => (
             <article key={project.slug} className={`${styles.card} surface`} data-reveal>
-              <h2>{project.title}</h2>
-              <p className={styles.impactLabel}>What changed</p>
-              <p>{project.impactSummary}</p>
+              <div className={styles.cardTop}>
+                <div>
+                  <h2>{project.title}</h2>
+                  <p className={styles.problemLabel}>Problem</p>
+                </div>
+                <span className={styles.duration}>{project.duration}</span>
+              </div>
+
+              <p className={styles.description}>{project.impactSummary}</p>
+              <p className={styles.problem}>{project.problem}</p>
 
               <div className={styles.stack} aria-label={`${project.title} technology stack`}>
                 {project.stack.map((item) => (
@@ -33,35 +40,24 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className={styles.chips} aria-label={`${project.title} proof points`}>
-                {project.proofChips.map((chip) => (
-                  <span key={chip}>{chip}</span>
-                ))}
-              </div>
-
-              <div className={styles.meta}>
-                <span>{project.role}</span>
-                <span>{project.duration}</span>
-              </div>
-
               <div className={styles.actions}>
                 <Link href={`/projects/${project.slug}`} className="btn btnGhost">
-                  Read Case Study
+                  View Case Study
                 </Link>
                 {project.demoUrl ? (
-                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btnGhost">
-                    Live Demo
+                  <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="btn btnSecondary">
+                    View Live Demo
                   </a>
                 ) : (
                   <span className={styles.unavailable} aria-label="Demo unavailable">
-                    Demo unavailable
+                    Live demo unavailable
                   </span>
                 )}
               </div>
 
               {project.repoUrl ? (
                 <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className={styles.repoLink}>
-                  Repository
+                  View Code
                 </a>
               ) : (
                 <span className={styles.unavailable}>Private repository</span>

@@ -39,8 +39,8 @@ export default async function ProjectCaseStudy({ params }) {
           <p className={styles.summary}>{project.impactSummary}</p>
 
           <div className={styles.heroMeta}>
-            <span>Role: {project.role}</span>
-            <span>Duration: {project.duration}</span>
+            <span>{project.role}</span>
+            <span>{project.duration}</span>
           </div>
 
           <div className={styles.links}>
@@ -63,11 +63,6 @@ export default async function ProjectCaseStudy({ params }) {
 
         <div className={styles.layout}>
           <article className={`${styles.panel} surface`} data-reveal>
-            <h2>Context</h2>
-            <p>{project.outcome}</p>
-          </article>
-
-          <article className={`${styles.panel} surface`} data-reveal>
             <h2>Problem</h2>
             <p>{project.problem}</p>
           </article>
@@ -78,7 +73,7 @@ export default async function ProjectCaseStudy({ params }) {
           </article>
 
           <article className={`${styles.panel} surface`} data-reveal>
-            <h2>Key Decisions and Tradeoffs</h2>
+            <h2>Key Decisions</h2>
             <ul>
               {project.keyDecisions.map((decision) => (
                 <li key={decision}>{decision}</li>
@@ -87,7 +82,12 @@ export default async function ProjectCaseStudy({ params }) {
           </article>
 
           <article className={`${styles.panel} surface`} data-reveal>
-            <h2>Outcomes and Metrics</h2>
+            <h2>Outcomes</h2>
+            <p>{project.outcome}</p>
+          </article>
+
+          <article className={`${styles.panel} surface`} data-reveal>
+            <h2>Results & Metrics</h2>
             <div className={styles.metrics}>
               {project.metrics.map((metric) => (
                 <div key={metric.label} className={styles.metricCard}>
@@ -120,8 +120,7 @@ export default async function ProjectCaseStudy({ params }) {
         <article className={`${styles.cta} surface`} data-reveal>
           <h2>Discuss a Similar Project</h2>
           <p>
-            If you are working on a related product challenge, I can help with the same
-            end-to-end design and implementation process.
+            If you are working on a related product challenge, I can help with the same end-to-end design and implementation process.
           </p>
           <div className={styles.ctaActions}>
             <Link href={`/contact?topic=${project.slug}`} className="btn btnPrimary">

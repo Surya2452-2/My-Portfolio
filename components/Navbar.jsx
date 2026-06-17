@@ -7,10 +7,11 @@ import styles from "./Navbar.module.css";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Me" },
   { href: "/projects", label: "Projects" },
-  { href: "/skills", label: "Skills" },
+  { href: "/skills", label: "Skills & Technologies" },
   { href: "/education", label: "Education" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function ThemeToggle() {
@@ -63,7 +64,7 @@ export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className="container">
-        <nav className={styles.nav} aria-label="Primary">
+        <nav className={styles.nav} aria-label="Primary navigation">
           <Link href="/" className={styles.brand}>
             <span>SP</span>
             <small>Surya</small>
@@ -75,9 +76,9 @@ export default function Navbar() {
             onClick={() => setMenuOpen((current) => !current)}
             aria-expanded={menuOpen}
             aria-controls="site-nav-links"
-            aria-label="Toggle navigation"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            Menu
+            {menuOpen ? "Close" : "Menu"}
           </button>
 
           <div id="site-nav-links" className={`${styles.links} ${menuOpen ? styles.open : ""}`}>
@@ -94,19 +95,7 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link
-              href="/contact"
-              className={`${styles.contactCta} ${pathname === "/contact" ? styles.contactCtaActive : ""}`}
-              aria-current={pathname === "/contact" ? "page" : undefined}
-            >
-              Contact
-            </Link>
-            <a
-              href="/resume.pdf"
-              download
-              className={styles.resumeCta}
-              aria-label="Download resume"
-            >
+            <a href="/resume.pdf" download className={styles.resumeCta} aria-label="Download resume">
               Resume
             </a>
             <ThemeToggle />

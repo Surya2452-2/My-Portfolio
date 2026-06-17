@@ -19,13 +19,13 @@ export default async function Contact({ searchParams }) {
           <p className="sectionBadge">06 / Contact</p>
           <h1>Let us build something meaningful together.</h1>
           <p className={styles.copy}>
-            Open to internships, freelance opportunities, and collaborative product work.
+            Open to internships, freelance product work, and AI-focused collaborations that move teams forward.
           </p>
 
           {referencedProject ? (
             <p className={styles.context}>
-              You are reaching out about <strong>{referencedProject.title}</strong>. I can help with a similar
-              workflow, from product framing to execution.
+              You are reaching out about <strong>{referencedProject.title}</strong>. I can help with a similar workflow,
+              from problem framing to launch.
             </p>
           ) : null}
 
@@ -42,7 +42,7 @@ export default async function Contact({ searchParams }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub
+              Explore GitHub
             </a>
             <a
               className="btn btnGhost"
@@ -50,7 +50,7 @@ export default async function Contact({ searchParams }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              View LinkedIn
             </a>
           </div>
 
@@ -65,13 +65,13 @@ export default async function Contact({ searchParams }) {
               <h2>Resume</h2>
               <p>
                 <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                  Download a concise, recruiter-ready resume
+                  Download the recruiter-ready resume
                 </a>
               </p>
             </article>
             <article className={styles.contactCard}>
               <h2>Social</h2>
-              <p>Find me on GitHub and LinkedIn for work samples and professional context.</p>
+              <p>Find recent work samples and professional context on GitHub and LinkedIn.</p>
             </article>
           </div>
 
